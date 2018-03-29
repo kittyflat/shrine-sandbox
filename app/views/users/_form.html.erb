@@ -1,0 +1,19 @@
+<%= form_with model: @user do |form| %>
+  <% if @user.avatar %>
+    <img src="<%= @user.avatar_url %>">
+    <br>
+  <% end %>
+  <%= form.label :avatar %>
+  <%= form.hidden_field :avatar, value: @user.cached_avatar_data %>
+  <%= form.file_field :avatar %>
+  <br>
+  <% if @user.cover_photo %>
+    <img src="<%= @user.cover_photo_url %>">
+    <br>
+  <% end %>
+  <%= form.label :cover_photo %>
+  <%= form.hidden_field :cover_photo, value: @user.cached_cover_photo_data %>
+  <%= form.file_field :cover_photo %>
+  <br>
+  <%= form.submit %>
+<% end %>

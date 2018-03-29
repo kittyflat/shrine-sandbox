@@ -1,0 +1,2 @@
+class CoverPhotoUploader < Shrine
+end
