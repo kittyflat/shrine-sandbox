@@ -11,7 +11,7 @@
   <% @users.each do |user| %>
     <tr>
       <td><%= user.id %></td>
-      <td><img src="<%= user.avatar_url %>"></td>
+      <td><img src="<%= user.avatar_url(:large) %>"></td>
       <td><img src="<%= user.cover_photo_url %>"></td>
       <td><%= link_to "Show", user_path(user) %></td>
       <td><%= link_to "Edit", edit_user_path(user) %></td>

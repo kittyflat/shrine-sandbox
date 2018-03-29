@@ -1,6 +1,6 @@
 <%= form_with model: @user do |form| %>
   <% if @user.avatar %>
-    <img src="<%= @user.avatar_url %>">
+    <img src="<%= @user.avatar_url(:large) %>">
     <br>
   <% end %>
   <%= form.label :avatar %>
