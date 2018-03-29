@@ -1,2 +1,2 @@
-class CoverPhotoUploader < Shrine
+class CoverPhotoUploader < ImageUploader
 end

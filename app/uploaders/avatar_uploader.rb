@@ -1,2 +1,2 @@
-class AvatarUploader < Shrine
+class AvatarUploader < ImageUploader
 end
