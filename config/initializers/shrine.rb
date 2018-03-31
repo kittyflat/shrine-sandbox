@@ -10,3 +10,10 @@ Shrine.plugin :activerecord # or :sequel
 Shrine.plugin :cached_attachment_data # for forms
 # Shrine.plugin :rack_file # for non-Rails apps
 Shrine.plugin :determine_mime_type
+Shrine.plugin :logging # , logger: Rails.logger
+# Shrine.plugin :remove_attachment
+
+# MiniMagick logging
+# https://github.com/minimagick/minimagick#logging
+MiniMagick.logger.level = Logger::DEBUG
+MiniMagick.logger = Rails.logger
