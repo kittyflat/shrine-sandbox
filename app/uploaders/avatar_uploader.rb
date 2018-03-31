@@ -1,6 +1,10 @@
 class AvatarUploader < ImageUploader
   plugin :versions # enable Shrine to handle a hash of files
 
+  Attacher.validate do
+    super()
+  end
+
   process(:store) do |io, context|
     original = io.download
 

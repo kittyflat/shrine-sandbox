@@ -1,4 +1,11 @@
 class CoverPhotoUploader < ImageUploader
+
+  Attacher.validate do
+    super()
+    validate_min_width 980
+    validate_min_height 250
+  end
+
   process(:store) do |io, context|
     original = io.download
 
