@@ -1,0 +1,15 @@
+<h1>Show look <%= @look.id %></h1>
+<%= link_to "Edit", edit_look_path(@look) %> |
+<%= link_to 'Back', looks_path %>
+<br>
+<br>
+User: <%= link_to @look.user_id, user_path(@look.user) %>
+<br>
+<%= link_to image_tag(@look.user.avatar_url(:small)), user_path(@look.user) %>
+<br>
+<br>
+<img src="<%= @look.photo_url(:thumb) %>">
+<img src="<%= @look.photo_url(:small) %>">
+<img src="<%= @look.photo_url(:medium) %>">
+<img src="<%= @look.photo_url(:large) %>">
+<img src="<%= @look.photo_url(:list) %>">

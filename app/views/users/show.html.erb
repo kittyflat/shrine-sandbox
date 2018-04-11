@@ -2,7 +2,18 @@
 <%= link_to "Edit", edit_user_path(@user) %> |
 <%= link_to 'Back', users_path %>
 <br>
+<br>
+<img src="<%= @user.cover_photo_url %>">
+<br>
+<br>
 <img src="<%= @user.avatar_url(:large) %>">
 <img src="<%= @user.avatar_url(:small) %>">
 <br>
-<img src="<%= @user.cover_photo_url %>">
+<br>
+
+<div>
+  <h2><%= pluralize(@user.looks.size, "look") %></h2>
+  <% @user.looks.each do |look| %>
+    <%= link_to image_tag(look.photo_url(:small)), look_path(look) %>
+  <% end %>
+</div>

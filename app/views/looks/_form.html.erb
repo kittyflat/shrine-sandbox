@@ -1,0 +1,27 @@
+<% if @look.errors.any? %>
+  <div>
+    <h2>
+      <%= pluralize(@look.errors.count, "error") %> prohibited this look from being saved:
+    </h2>
+    <ul>
+      <% @look.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+    </ul>
+  </div>
+<% end %>
+
+<%= form_with model: @look, local: true do |form| %>
+  <%= form.label :user_id %>
+  <%= form.select :user_id, User.all.map(&:id) %>
+  <br>
+  <% if @look.photo %>
+    <img src="<%= @look.photo_url(:large) %>">
+    <br>
+  <% end %>
+  <%= form.label :photo %>
+  <%= form.hidden_field :photo, value: @look.cached_photo_data %>
+  <%= form.file_field :photo %>
+  <br>
+  <%= form.submit %>
+<% end %>

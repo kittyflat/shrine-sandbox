@@ -10,7 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180326034720) do
+ActiveRecord::Schema.define(version: 20180404034401) do
+
+  create_table "looks", force: :cascade do |t|
+    t.integer "user_id"
+    t.text "photo_data"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_looks_on_user_id"
+  end
 
   create_table "users", force: :cascade do |t|
     t.text "avatar_data"

@@ -4,4 +4,6 @@ class User < ApplicationRecord
 
   validates_presence_of :avatar
   # validates_presence_of :cover_photo
+
+  has_many :looks, dependent: :destroy
 end
