@@ -11,7 +11,7 @@
   <% @looks.each do |look| %>
     <tr>
       <td><%= look.id %></td>
-      <td><%= look.user_id %></td>
+      <td><%= link_to look.user_id, user_path(look.user) %></td>
       <td><img src="<%= look.photo_url(:small) %>"></td>
       <td><%= link_to "Show", look_path(look) %></td>
       <td><%= link_to "Edit", edit_look_path(look) %></td>
