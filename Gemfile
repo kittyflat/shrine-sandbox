@@ -58,3 +58,8 @@ gem 'fastimage'
 gem 'image_processing'
 gem 'mini_magick'
 gem 'aws-sdk-s3', '~> 1'
+# gem 'backblaze'
+# gem 'b2'
+
+gem 'http'
+gem 'down'
