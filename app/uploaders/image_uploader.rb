@@ -1,4 +1,8 @@
 class ImageUploader < Shrine
+
+  ALLOWED_TYPES = %w[image/jpeg image/jpg image/png image/pjpeg]
+  MAX_SIZE = 10*1024*1024 # 10 MB
+
   plugin :store_dimensions
   plugin :processing
   plugin :delete_raw # delete processed files after uploading, unless it's an UploadedFile
@@ -14,6 +18,7 @@ class ImageUploader < Shrine
   end
 
   Attacher.validate do
-    validate_mime_type_inclusion %w[image/jpeg image/jpg image/png image/pjpeg]
+    validate_max_size MAX_SIZE
+    validate_mime_type_inclusion ALLOWED_TYPES
   end
 end
