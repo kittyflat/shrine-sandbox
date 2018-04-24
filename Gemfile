@@ -63,3 +63,5 @@ gem 'aws-sdk-s3', '~> 1'
 
 gem 'http'
 gem 'down'
+
+gem 'sidekiq'

@@ -46,7 +46,12 @@ Shrine.plugin :cached_attachment_data # for forms
 # Shrine.plugin :rack_file # for non-Rails apps
 Shrine.plugin :determine_mime_type
 Shrine.plugin :logging # , logger: Rails.logger
+Shrine.plugin :backgrounding
 # Shrine.plugin :remove_attachment
+
+# make all uploaders use background jobs
+Shrine::Attacher.promote { |data| PromoteJobWorker.perform_async(data) }
+Shrine::Attacher.delete { |data| DeleteJobWorker.perform_async(data) }
 
 # MiniMagick logging
 # https://github.com/minimagick/minimagick#logging
